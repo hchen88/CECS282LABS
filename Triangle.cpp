@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Name: Howard Chen
+ * ID: 005536087
+ * Class: CECS 282
+ * Instructor: Professor Minhthong Nguyen
+ * Date: 10 October 2018
+ * Purpose : Program demonstrate Polymorphism with a
+ Shape base class and a Triangle derived class. Calculates triangle area, perimeter.
+ Prompts user for sides,  Color , and filled/notfilled triangle.
+ *
  */
-
-/* 
- * File:   Triangle2.cpp
- * Author: howar
- * 
- * Created on October 10, 2018, 9:54 PM
- */
-
 #include "Triangle.h"
 #include <cmath>
+#include<string>
 
 using namespace std;
 Triangle::Triangle() {
@@ -24,38 +22,23 @@ Triangle::Triangle() {
 }
 
 Triangle :: Triangle(double side1, double side2, double side3, 
-        string color, bool filled ) : Shape(){
+                     string color1, bool filled1 ) : Shape( side1,  side2,  side3,
+ color1,  filled1 ){
     sideOne = side1;
     sideTwo = side2;
     sideThree = side3;
+    color = color1;
+    filled = filled1;
 }
 
-double Triangle :: getSideOne() const{
-    return sideOne;
-}
-double Triangle :: getSideTwo() const{
-    return sideTwo;   
-}
-double Triangle :: getSideThree() const{
-    return sideThree;
-}
-
-string Triangle :: getColor() const{
-    return color;
-}
-
-bool Triangle :: getFilled() const{
-    return filled;
-}
-
-double  Triangle :: getPerimeter(double sideOne, double sideTwo, double sideThree) const{
+double  Triangle :: getPerimeter() const{
     return sideOne + sideTwo + sideThree;
     
 }
-double Triangle :: getArea(double sideOne, double sideTwo, double sideThree) const{
-    double p = Triangle :: getPerimeter(sideOne, sideTwo, sideThree);
+double Triangle :: getArea() const{
+    double s =  getPerimeter() /2;
     
-    return sqrt( p * (p - sideOne) * (p - sideTwo) * (p - sideThree)); 
+    return sqrt( s * (s - sideOne) * (s - sideTwo) * (s - sideThree)); 
     
 }
 
